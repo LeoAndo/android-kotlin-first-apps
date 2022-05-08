@@ -22,6 +22,13 @@ https://github.com/LeoAndo/android-kotlin-first-apps/tree/main/FragmentSample<br
 ## スクリーンショット (Google ピクセル4 OS: 11)
 <img src="https://user-images.githubusercontent.com/16476224/167300098-c4d24bc9-2a18-4449-9a78-b340034a8ecc.png" width=320 />
 
+# [テンプレート1](https://github.com/LeoAndo/android-kotlin-first-apps/tree/main/EmptyActivityTemplate)
+
+<img width="251" alt="スクリーンショット 2022-05-08 23 11 39" src="https://user-images.githubusercontent.com/16476224/167300769-2ed34dcb-1a8b-4d1e-a234-86f943f1b85c.png">
+
+# [テンプレート2](https://github.com/LeoAndo/android-kotlin-first-apps/tree/main/BottomNavigationActivityTemplate)
+
+
 
 # 参考文献
 https://developer.android.com/kotlin/interop<br>
