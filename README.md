@@ -28,6 +28,9 @@ https://github.com/LeoAndo/android-kotlin-first-apps/tree/main/FragmentSample<br
 
 # [テンプレート2](https://github.com/LeoAndo/android-kotlin-first-apps/tree/main/BottomNavigationActivityTemplate)
 
+<img width="264" alt="スクリーンショット 2022-05-08 23 17 55" src="https://user-images.githubusercontent.com/16476224/167300855-426e4caa-6a37-47bd-9b2f-a942d2c1280f.png">
+
+
 
 
 # 参考文献
