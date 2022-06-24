@@ -20,9 +20,8 @@ class MainActivity : AppCompatActivity() {
         buttonSearch.isEnabled = false
 
         textInputEditTextKeyword.doOnTextChanged { text, start, before, count ->
-            val isEnableButton = (count > 0)
             val isErrorEnabled = (count == 0)
-            buttonSearch.isEnabled = isEnableButton
+            buttonSearch.isEnabled = !isErrorEnabled
             textInputLayoutKeyword.isErrorEnabled = isErrorEnabled
             if (isErrorEnabled) {
                 textInputLayoutKeyword.error = "未入力です！"
