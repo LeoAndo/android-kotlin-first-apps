@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             counter.countUp()
             txtCount.text = counter.value.toString()
 
-            if(counter.value == 10) {
+            if(counter.value > 10) {
                 SubActivity.startActivity(this)
             }
         }
