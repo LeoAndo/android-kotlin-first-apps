@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonSearch.setOnClickListener {
-            viewModel.searchOkashi("ケーキ")
+            val keyword = textInputEditTextKeyword.text.toString()
+            viewModel.searchOkashi(keyword)
         }
 
         viewModel.items.observe(this) {
