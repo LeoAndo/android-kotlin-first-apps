@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
     private val okashiListAdapter = OkashiListAdapter(onItemClick = {
         // TODO ブラウザを起動する処理を入れる.
+        AppLaunchHelper(this).launchBrowserApp(it.url)
     })
 
     override fun onCreate(savedInstanceState: Bundle?) {
