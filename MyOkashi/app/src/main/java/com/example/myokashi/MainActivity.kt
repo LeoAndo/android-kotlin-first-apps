@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -43,11 +46,31 @@ class MainActivity : AppCompatActivity() {
             viewModel.searchOkashi(keyword)
         }
 
+        /*
         viewModel.items.observe(this) {
             it?.forEach {
                 Log.d("MainActivity", "name: " + it.name)
             }
             okashiListAdapter.submitList(it)
+        }
+         */
+
+        val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
+        viewModel.uiState.observe(this) {
+            Log.d("MainActivity", "uiState: " + it)
+
+            progressIndicator.isVisible = it is UiState.Loading
+            when (it) {
+                is UiState.Error -> {
+                    Toast.makeText(this, it.errorMessage, Toast.LENGTH_LONG).show()
+                }
+                is UiState.Success -> {
+                    okashiListAdapter.submitList(it.items)
+                }
+                else -> {
+                    // 何も処理しない.
+                }
+            }
         }
 
         val okashiList = findViewById<RecyclerView>(R.id.okashiList)
