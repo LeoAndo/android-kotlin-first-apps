@@ -57,8 +57,6 @@ class MainActivity : AppCompatActivity() {
 
         val progressIndicator = findViewById<CircularProgressIndicator>(R.id.progressIndicator)
         viewModel.uiState.observe(this) {
-            Log.d("MainActivity", "uiState: " + it)
-
             progressIndicator.isVisible = it is UiState.Loading
             when (it) {
                 is UiState.Error -> {
