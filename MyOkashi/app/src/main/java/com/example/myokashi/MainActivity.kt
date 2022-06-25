@@ -6,11 +6,16 @@ import android.util.Log
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
+    private val okashiListAdapter = OkashiListAdapter(onItemClick = {
+        // TODO ブラウザを起動する処理を入れる.
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         buttonSearch.isEnabled = false
 
         textInputEditTextKeyword.doOnTextChanged { text, start, before, count ->
-            val isErrorEnabled = (count == 0)
+            val isErrorEnabled = text.isNullOrEmpty()
             buttonSearch.isEnabled = !isErrorEnabled
             textInputLayoutKeyword.isErrorEnabled = isErrorEnabled
             if (isErrorEnabled) {
@@ -41,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             it?.forEach {
                 Log.d("MainActivity", "name: " + it.name)
             }
+            okashiListAdapter.submitList(it)
         }
+
+        val okashiList = findViewById<RecyclerView>(R.id.okashiList)
+        okashiList.adapter = okashiListAdapter
+        okashiList.layoutManager = LinearLayoutManager(this)
     }
 }

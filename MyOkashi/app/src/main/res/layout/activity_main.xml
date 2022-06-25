@@ -29,4 +29,11 @@
         android:layout_height="wrap_content"
         android:text="けんさく" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/okashiList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="10"
+        tools:listitem="@layout/okashi_item" />
+
 </LinearLayout>
