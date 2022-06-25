@@ -2,12 +2,16 @@ package com.example.myokashi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
+    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonSearch.setOnClickListener {
+            viewModel.searchOkashi("ケーキ")
+        }
 
+        viewModel.items.observe(this) {
+            it?.forEach {
+                Log.d("MainActivity", "name: " + it.name)
+            }
         }
     }
 }
