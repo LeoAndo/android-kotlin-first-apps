@@ -3,4 +3,4 @@
 
 # capture
 
-<img src= "https://github.com/LeoAndo/android-kotlin-first-apps/blob/main/MyOkashi/pixel4_API26.png" width=320 />
+<img src= "https://github.com/LeoAndo/android-kotlin-first-apps/blob/main/MyOkashi/capture.gif" width=320 />
