@@ -24,7 +24,8 @@ class SearchOkashiUseCase(
     //  invokeで処理を書き、関数オブジェクトとして扱う
     suspend operator fun invoke(keyword: String): List<OkashiDomainModel>? {
         return withContext(dispatcher) {
-            repository.searchOkashi(keyword).toOkashiDomainModels()
+            null
+            // repository.searchOkashi2(keyword)
         }
     }
 }
