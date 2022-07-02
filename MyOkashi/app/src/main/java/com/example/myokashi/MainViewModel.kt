@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
-class MainViewModel constructor(private val repository: OkashiRepository = OkashiRepository()) :
+class MainViewModel constructor(private val repository: OkashiRepository = OkashiRepositoryImpl()) :
     ViewModel() {
 
     // val items = MutableLiveData<List<APIResponse.Item>?>()
