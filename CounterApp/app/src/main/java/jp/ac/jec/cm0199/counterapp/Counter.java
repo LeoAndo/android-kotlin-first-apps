@@ -1,6 +1,6 @@
 package jp.ac.jec.cm0199.counterapp;
 
-public class Counter {
+public final class Counter {
     private int value;
 
     public Counter(int value) {
