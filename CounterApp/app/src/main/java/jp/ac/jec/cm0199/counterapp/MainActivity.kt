@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
             counter.countUp()
             showToast(counter.value.toString())
         }
+        findViewById<Button>(R.id.buttonNextScreen).setOnClickListener {
+            showToast("start SubActivity")
+            SubActivity.start(this)
+        }
     }
 
     private fun showToast(message: String) {
