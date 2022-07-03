@@ -18,7 +18,7 @@ public class SubActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub);
 
         final CountDownData countDownData = new CountDownData();
-        new CountDownTimer(countDownData.getMillisInFuture(), countDownData.getCountDownInterval()) {
+        new CountDownTimer(countDownData.millisInFuture, countDownData.countDownInterval) {
             @Override
             public void onTick(long millisUntilFinished) {
                 final long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished);
@@ -27,11 +27,11 @@ public class SubActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                countDownData.showMessage(SubActivity.this, "終了！");
+                countDownData.showMessage(SubActivity.this);
             }
         }.start();
 
-        CountDownData.Companion.doSomeThingStaticMethod();
+        CountDownData.doSomeThingStaticMethod();
     }
 
     public static void start(Context context) {
