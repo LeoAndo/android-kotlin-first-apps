@@ -3,11 +3,10 @@ package com.example.myokashi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myokashi.domain.SearchOkashiUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
-class MainViewModel constructor(private val usecase: SearchOkashiUseCase = SearchOkashiUseCase()) :
+class MainViewModel constructor(private val repository: OkashiRepository = OkashiRepository()) :
     ViewModel() {
 
     // val items = MutableLiveData<List<APIResponse.Item>?>()
@@ -20,9 +19,9 @@ class MainViewModel constructor(private val usecase: SearchOkashiUseCase = Searc
     fun searchOkashi(keyword: String) {
         viewModelScope.launch(coroutineExceptionHandler) {
             uiState.value = UiState.Loading
-            val response = usecase(keyword = keyword)
+            val response = repository.searchOkashi(keyword = keyword)
             // items.value = response.item
-            uiState.value = UiState.Success(items = response)
+            uiState.value = UiState.Success(items = response.item)
         }
     }
 }

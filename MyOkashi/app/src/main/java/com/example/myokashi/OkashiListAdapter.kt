@@ -8,11 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myokashi.domain.OkashiDomainModel
 
 class OkashiListAdapter(
-    private val onItemClick: (OkashiDomainModel) -> Unit
-) : ListAdapter<OkashiDomainModel, OkashiListAdapter.VH>(ITEM_CALLBACK) {
+    private val onItemClick: (APIResponse.Item) -> Unit
+) : ListAdapter<APIResponse.Item, OkashiListAdapter.VH>(ITEM_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.okashi_item, parent, false)
         return VH(item)
@@ -23,7 +22,7 @@ class OkashiListAdapter(
     }
 
     inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: OkashiDomainModel) {
+        fun bind(item: APIResponse.Item) {
             val textName = itemView.findViewById<TextView>(R.id.name)
             textName.text = item.name
             val imageView = itemView.findViewById<ImageView>(R.id.image)
@@ -35,11 +34,12 @@ class OkashiListAdapter(
     }
 }
 
-private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<OkashiDomainModel>() {
-    override fun areItemsTheSame(oldItem: OkashiDomainModel, newItem: OkashiDomainModel): Boolean {
+private val ITEM_CALLBACK = object : DiffUtil.ItemCallback<APIResponse.Item>() {
+    override fun areItemsTheSame(oldItem: APIResponse.Item, newItem: APIResponse.Item): Boolean {
         return oldItem.id == newItem.id
     }
-    override fun areContentsTheSame(oldItem: OkashiDomainModel, newItem: OkashiDomainModel): Boolean {
+
+    override fun areContentsTheSame(oldItem: APIResponse.Item, newItem: APIResponse.Item): Boolean {
         return oldItem == newItem
     }
 }
