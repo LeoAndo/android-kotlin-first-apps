@@ -1,6 +1,8 @@
 package com.example.fragmentsample.ui
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -16,8 +18,10 @@ class HelloFragment : Fragment(R.layout.fragment_hello) {
         txtHello.text = "Hello, Fragment"
 
         view.findViewById<Button>(R.id.buttonNext).setOnClickListener {
-            val directions = HelloFragmentDirections.goToUserFragment(User())
-            findNavController().navigate(directions)
+            Handler(Looper.myLooper()!!).postDelayed({
+                val directions = HelloFragmentDirections.goToUserFragment(User())
+                findNavController().navigate(directions)
+            }, 2000L)
         }
     }
 }
