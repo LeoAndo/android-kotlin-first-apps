@@ -9,9 +9,8 @@ class Foo {
             }
         }
         get() {
-            val randomValue = listOf(5, 10, 15, 20).random()
-            println("getが呼ばれる： $randomValue")
-            return field + randomValue
+            println("getが呼ばれる： $field")
+            return field
         }
 }
 
