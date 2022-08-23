@@ -1,5 +1,5 @@
 # 概要
-Kotlin体験用テキストで紹介するAndroidプロジェクト
+Kotlin体験用テキストで紹介するAndroidプロジェクト 
 
 # 開発環境
 <img width="686" alt="167245831-cb3a6165-b443-464e-a4ee-2110f4fbf280" src="https://user-images.githubusercontent.com/16476224/167291320-712a3141-a861-4127-a6ad-16ab9d3a2fc5.png">
